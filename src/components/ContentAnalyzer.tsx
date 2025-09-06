@@ -3,13 +3,16 @@
 import { useState } from "react";
 import { analyzeContent, extractTextFromUrl } from "@/lib/free-ai-service";
 import AnalysisResults from "./AnalysisResults";
-import { HistoryItem } from "@/types";
+import type {
+  HistoryItem,
+  AnalysisResults as AnalysisResultsType,
+} from "@/types";
 import HistoryPanel from "./HistoryPanel";
 
 export default function ContentAnalyzer() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [results, setResults] = useState<any>(null);
+  const [results, setResults] = useState<AnalysisResultsType | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [activeTab, setActiveTab] = useState<"text" | "url">("text");
