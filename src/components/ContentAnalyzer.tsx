@@ -4,6 +4,7 @@ import { useState } from "react";
 import { analyzeContent, extractTextFromUrl } from "@/lib/free-ai-service";
 import AnalysisResults from "./AnalysisResults";
 import { HistoryItem } from "@/types";
+import HistoryPanel from "./HistoryPanel";
 
 export default function ContentAnalyzer() {
   const [input, setInput] = useState("");
@@ -216,6 +217,10 @@ export default function ContentAnalyzer() {
             </form>
 
             {results && <AnalysisResults results={results} />}
+          </div>
+
+          <div className="lg:col-span-1">
+            <HistoryPanel history={history} />
           </div>
         </div>
       </div>
